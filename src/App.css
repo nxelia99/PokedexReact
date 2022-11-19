@@ -1,11 +1,25 @@
+*{
+  color: black;
+}
 .logo{
   width: 160px;
   height: 55px;
 }
+
 .iconstar{
   width: 33px;
 }
 
+.searchbar{
+  height: 37px !important;
+}
+
+#search{
+  background-color: #282c34 !important;
+  border: none!important;
+  box-shadow: none !important;
+  color: white !important;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
