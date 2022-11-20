@@ -20,9 +20,11 @@
   box-shadow: none !important;
   color: white !important;
 }
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+.pokedex{
+  grid-auto-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  padding: 0px 10px;
 }
 
 @media (prefers-reduced-motion: no-preference) {

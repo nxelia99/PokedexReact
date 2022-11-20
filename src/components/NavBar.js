@@ -36,7 +36,7 @@ const navbar = () =>{
     })
 
     return(
-      <>
+      <div>
         <Navbar bg="dark" variant="dark" expand="md" className={scrolled ? "scrolled" : ""}>
         <Container>
         <Navbar.Brand href="/">
@@ -47,8 +47,8 @@ const navbar = () =>{
         </Navbar.Toggle>
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
-            <Nav.Link href="#home" className='mt-1 mx-2'>Home</Nav.Link>
-            <Nav.Link href="#features" className='mt-1 mx-2'>Features</Nav.Link>
+            <Nav.Link href="#home" className='mx-2'>Home</Nav.Link>
+            <Nav.Link href="#features" className='mx-2'>Features</Nav.Link>
             <Nav.Link href="#pricing" className='mx-2'>Favs <img src={iconstar} className='iconstar' alt='iconstar'/></Nav.Link>
           </Nav>
           <Form className="d-flex searchbar">
@@ -68,7 +68,7 @@ const navbar = () =>{
         </Navbar.Collapse> 
         </Container>
         </Navbar>
-        <div>
+        <div className='d-flex m-auto justify-content-center align-items-center'>
           { pokemon &&
             <div>
             <div>Nombre: {pokemon.name}</div>
@@ -76,7 +76,7 @@ const navbar = () =>{
             <img src={pokemon.sprites.front_default} alt='pokemon' />
             </div>} 
         </div>
-        </>
+      </div>
     )
 }
 
