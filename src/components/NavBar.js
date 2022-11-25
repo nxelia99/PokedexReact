@@ -49,7 +49,7 @@ const navbar = () =>{
           <Nav className="ms-auto">
             <Nav.Link href="#home" className='mx-2'>Home</Nav.Link>
             <Nav.Link href="#features" className='mx-2'>Features</Nav.Link>
-            <Nav.Link href="#pricing" className='mx-2'>Favs <img src={iconstar} className='iconstar' alt='iconstar'/></Nav.Link>
+            <Nav.Link href="#pricing" className='mx-2 align-center justify-content-center'><img src={iconstar} className='iconstar' alt='iconstar'/></Nav.Link>
           </Nav>
           <Form className="d-flex searchbar">
                   <input
@@ -60,7 +60,7 @@ const navbar = () =>{
                     id="search"
                     onChange={onChange}
                   />
-                  <Button variant="outline-success m-auto" onClick={onClick}>Search</Button>
+                  <Button className='btn btn-secondary m-auto' onClick={onClick}>Search</Button>
                   <div className='align-items-end mx-5'>
                 <img src={darkmode} alt='darkmode' />
             </div>
