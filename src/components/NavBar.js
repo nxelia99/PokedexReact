@@ -36,37 +36,33 @@ const navbar = () =>{
     })
 
     return(
-      <div>
+      <div className='m-auto'>
         <Navbar bg="dark" variant="dark" expand="md" className={scrolled ? "scrolled" : ""}>
-        <Container>
-        <Navbar.Brand href="/">
-            <img className='logo m-auto' src='https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi_256.png' alt='pokeapi logo'/>
-        </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav">
-            <span className="navbar-toggler-icon"></span>
-        </Navbar.Toggle>
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="ms-auto">
-            <Nav.Link href="#home" className='mx-2'>Home</Nav.Link>
-            <Nav.Link href="#features" className='mx-2'>Features</Nav.Link>
-            <Nav.Link href="#pricing" className='mx-2 align-center justify-content-center'><img src={iconstar} className='iconstar' alt='iconstar'/></Nav.Link>
-          </Nav>
-          <Form className="d-flex searchbar">
-                  <input
-                    type="search"
-                    placeholder="Search"
-                    className="me-2"
-                    aria-label="Search"
-                    id="search"
-                    onChange={onChange}
-                  />
-                  <Button className='btn btn-secondary m-auto' onClick={onClick}>Search</Button>
-                  <div className='align-items-end mx-5'>
-                <img src={darkmode} alt='darkmode' />
-            </div>
-          </Form>
-        </Navbar.Collapse> 
-        </Container>
+          <Navbar.Brand href="/">
+              <img className='logo' src='https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi_256.png' alt='pokeapi logo'/>
+          </Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav">
+              <span className="navbar-toggler-icon"></span>
+          </Navbar.Toggle>
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="ms-auto d-flex flex-column float-end">
+              <Nav.Link href="#favs" className='mx-2'><img src={iconstar} className='iconstar' alt='iconstar'/></Nav.Link>
+            </Nav>
+            <Form className="d-flex searchbar mx-4">
+                    <input
+                      type="search"
+                      placeholder="Search"
+                      className="me-2"
+                      aria-label="Search"
+                      id="search"
+                      onChange={onChange}
+                    />
+                    <Button className='btn btn-secondary' onClick={onClick}>Search</Button>
+                    <div className='align-items-end mx-5'>
+                  <img src={darkmode} alt='darkmode' />
+              </div>
+            </Form>
+          </Navbar.Collapse> 
         </Navbar>
         <div className='d-flex m-auto justify-content-center align-items-center'>
           { pokemon &&

@@ -5,25 +5,24 @@ import Pokedex from './components/Pokedex';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { getPokemonData, getPokemons } from './api';
-import pokeball from '../src/images/pokeball.gif';
 import pikachu from './images/pikachu.gif';
 import ash from './images/ash.gif'
 
 export default function App() {
   const [pokemons, setPokemons] = useState([]);
-  const [page, setPage] = useState();
-  const [total, setTotal] = useState();
+  const [page, setPage] = useState(0);
+  const [total, setTotal] = useState(0);
   const [loading, setLoading] = useState(false);
 
   const fetchPokemons = async () => {
     try{
-      const data = await getPokemons();
-      console.log(data.results)
+      const data = await getPokemons(25, 25*page);
       const promises = data.results.map(async(pokemon) => {
         return await getPokemonData(pokemon.url)
       })
       const results = await Promise.all(promises);
       setPokemons(results)
+      setTotal(Math.ceil(data.count / 25));
     }catch(err){
 
     }
@@ -33,8 +32,8 @@ export default function App() {
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
-    }, 2000);
-    },[]);
+    }, 500);
+    },[page]);
   
   return (
     <>
@@ -42,7 +41,7 @@ export default function App() {
       { loading ?  (<> <div className='text-center mt-5'><h2>Cargando pokemons...</h2></div>
                   <div className='mt-5 d-flex flex-row justify-content-center align-items-center gap-5'><img src={ash} className='mb-4' /><img className='mt-5' src={pikachu} width="90px"/></div></>)
       :
-      (<Pokedex pokemons={pokemons} /> )}
+      (<Pokedex pokemons={pokemons} page={page} setPage={setPage} total={total} /> )}
     </>  
   );
 }
