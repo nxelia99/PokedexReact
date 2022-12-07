@@ -46,7 +46,7 @@ const navbar = () =>{
           </Navbar.Toggle>
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto d-flex flex-column float-end">
-              <Nav.Link href="#favs" className='mx-2'><img src={iconstar} className='iconstar' alt='iconstar'/></Nav.Link>
+              <Nav.Link href="#favs" className='mx-2'><img src={iconstar} className='navbar-iconstar' alt='iconstar'/></Nav.Link>
             </Nav>
             <Form className="d-flex searchbar mx-4">
                     <input
@@ -64,12 +64,20 @@ const navbar = () =>{
             </Form>
           </Navbar.Collapse> 
         </Navbar>
-        <div className='d-flex m-auto justify-content-center align-items-center'>
+        <div className='d-flex m-auto justify-content-center align-items-center mt-5 fs-5'>
           { pokemon &&
-            <div>
-            <div>Nombre: {pokemon.name}</div>
-            <div>Peso: {pokemon.weight}</div>
-            <img src={pokemon.sprites.front_default} alt='pokemon' />
+            <div  className='card p-4 d-flex flex-column text-center m-auto align-items-center'>
+              <div className='pokename'><b>Nombre:</b> {pokemon.name}</div>
+              <div><b>Peso:</b> {pokemon.weight}</div>
+              <div className='d-flex flex-row align-items-center'> <b>Type:</b> {pokemon.types.map((type, idx) => {
+                        return(
+                            <div className="mx-2 text-type" key={idx}>{type.type.name}</div>
+                        )
+                    }
+                    
+                    )}
+                    </div>
+              <img className='pokemonimg' src={pokemon.sprites.front_default} alt='pokemon' width={180} height={180} />
             </div>} 
         </div>
       </div>

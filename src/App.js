@@ -39,7 +39,7 @@ export default function App() {
     <>
       <Navbar /> 
       { loading ?  (<> <div className='text-center mt-5'><h2>Cargando pokemons...</h2></div>
-                  <div className='mt-5 d-flex flex-row justify-content-center align-items-center gap-5'><img src={ash} className='mb-4' /><img className='mt-5' src={pikachu} width="90px"/></div></>)
+                  <div className='mt-5 d-flex flex-row justify-content-center align-items-center gap-5'><img src={ash} className='mb-4' alt='pokemon' /><img className='mt-5' src={pikachu} width="90px"/></div></>)
       :
       (<Pokedex pokemons={pokemons} page={page} setPage={setPage} total={total} /> )}
     </>  

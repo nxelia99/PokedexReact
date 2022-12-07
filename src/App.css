@@ -8,8 +8,13 @@
   height: 55px;
 }
 
-.iconstar{
+
+.navbar-iconstar{
   width: 30px;
+}
+.iconstar:hover{
+  transform: translateY(-2px);
+  transition:  0.5s ease-in;
 }
 
 .searchbar{
@@ -53,6 +58,24 @@ button{
   font-size: 22px;
 }
 
+.paginationbtn{
+  background-color: transparent;
+}
+
+.left:hover{
+  transform: translateX(-2px);
+  transition: 400ms ease-in;
+
+}
+
+.right:hover{
+  transform: translateX(2px);
+  transition: 400ms ease-in;
+}
+
+.pokemonimg:hover{
+  transform: rotate3d(23);
+}
 
 
 
