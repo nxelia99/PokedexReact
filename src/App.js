@@ -7,12 +7,14 @@ import { useEffect } from 'react';
 import { getPokemonData, getPokemons } from './api';
 import pikachu from './images/pikachu.gif';
 import ash from './images/ash.gif'
+import { FavProvider } from './contexts/FavsContext';
 
 export default function App() {
   const [pokemons, setPokemons] = useState([]);
   const [page, setPage] = useState(0);
   const [total, setTotal] = useState(0);
   const [loading, setLoading] = useState(false);
+  const [favs, setFavs] = useState(['raichu'])
 
   const fetchPokemons = async () => {
     try{
@@ -35,13 +37,18 @@ export default function App() {
     }, 500);
     },[page]);
   
+const updateFavPokemons = (name) =>{
+  console.log(name)
+}
   return (
     <>
+    <FavProvider value={{favPokemon: favs, updateFavPokemons: updateFavPokemons}}>
       <Navbar /> 
       { loading ?  (<> <div className='text-center mt-5'><h2>Cargando pokemons...</h2></div>
-                  <div className='mt-5 d-flex flex-row justify-content-center align-items-center gap-5'><img src={ash} className='mb-4' alt='pokemon' /><img className='mt-5' src={pikachu} width="90px"/></div></>)
+                  <div className='mt-5 d-flex flex-row justify-content-center align-items-center gap-5'><img src={ash} className='mb-4' alt='ash' /><img className='mt-5' src={pikachu} width="90px" alt='pikachu'/></div></>)
       :
       (<Pokedex pokemons={pokemons} page={page} setPage={setPage} total={total} /> )}
+    </FavProvider>
     </>  
   );
 }

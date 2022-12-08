@@ -1,5 +1,4 @@
 import React from 'react';
-import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import iconstar from '../images/iconstar.png';
@@ -8,6 +7,10 @@ import { Form } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
 import { useState, useEffect } from 'react';
 import { searchPokemon } from '../api';
+import FavsContext from '../contexts/FavsContext';
+
+const {useContext} = React;
+
   
 const navbar = () =>{
     const [search, setSearch] = useState('');
@@ -21,6 +24,8 @@ const navbar = () =>{
       setPokemon(data);
     }
     const [scrolled, setScrolled] = useState(false);
+    const {favPokemon} = useContext(FavsContext)
+    console.log(favPokemon)
 
     useEffect(() => {
         const onScroll = () => {
@@ -46,7 +51,7 @@ const navbar = () =>{
           </Navbar.Toggle>
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto d-flex flex-column float-end">
-              <Nav.Link href="#favs" className='mx-2'><img src={iconstar} className='navbar-iconstar' alt='iconstar'/></Nav.Link>
+              <Nav.Link href="#favs" className='m-2'><img src={iconstar} className='navbar-iconstar mx-3' alt='iconstar'/>{favPokemon.length}</Nav.Link>
             </Nav>
             <Form className="d-flex searchbar mx-4">
                     <input

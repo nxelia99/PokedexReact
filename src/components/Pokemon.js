@@ -1,10 +1,14 @@
-import React from "react";
-import iconstar from '../images/iconstar.png';
+import React, { useContext } from "react";
+import FavsContext from "../contexts/FavsContext";
+import blackiconstar from '../images/blackiconstar.png'
+import iconstar from '../images/iconstar.png'
 
 const Pokemon = (props) =>{
     const {pokemon} = props;
-    const navbarfav = 'navbar-iconstar'
-    const favicon = 'iconstar'
+    const yellow = {iconstar}
+    const black = {blackiconstar}
+    const {favPokemon} = useContext(FavsContext)
+    const heart = favPokemon.includes(pokemon.name) ? yellow : black;
 
 
     return(
@@ -27,7 +31,7 @@ const Pokemon = (props) =>{
                     )}
                     </div>
                     <button className="btn py-1">
-                        <div className="mt-5 iconstar"><img src={iconstar} width="30px" alt="icon star"/></div>
+                        <div className="mt-5 iconstar"><img src={blackiconstar} width="30px" alt="icon star"/></div>
                     </button>
                 </div>
             </div>
