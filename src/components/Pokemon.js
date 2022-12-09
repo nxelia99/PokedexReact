@@ -5,11 +5,33 @@ import iconstar from '../images/iconstar.png'
 
 const Pokemon = (props) =>{
     const {pokemon} = props;
-    const yellow = {iconstar}
-    const black = {blackiconstar}
+    const black = '🖤'
+    const yellow = '💛'
     const {favPokemon} = useContext(FavsContext)
     const heart = favPokemon.includes(pokemon.name) ? yellow : black;
 
+    const colours = {
+        normal: '#A8A77A',
+        fire: '#EE8130',
+        water: '#6390F0',
+        electric: '#F7D02C',
+        grass: '#7AC74C',
+        ice: '#96D9D6',
+        fighting: '#C22E28',
+        poison: '#A33EA1',
+        ground: '#E2BF65',
+        flying: '#A98FF3',
+        psychic: '#F95587',
+        bug: '#A6B91A',
+        rock: '#B6A136',
+        ghost: '#735797',
+        dragon: '#6F35FC',
+        dark: '#705746',
+        steel: '#B7B7CE',
+        fairy: '#D685AD',
+    };
+
+  
 
     return(
         <div className="pokemon d-flex flex-row card text-center shadow p-3 mb-5 bg-body rounded">
@@ -31,7 +53,7 @@ const Pokemon = (props) =>{
                     )}
                     </div>
                     <button className="btn py-1">
-                        <div className="mt-5 iconstar"><img src={blackiconstar} width="30px" alt="icon star"/></div>
+                        <div className="mt-5 iconstar">{heart}</div>
                     </button>
                 </div>
             </div>

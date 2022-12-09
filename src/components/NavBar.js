@@ -10,7 +10,6 @@ import { searchPokemon } from '../api';
 import FavsContext from '../contexts/FavsContext';
 
 const {useContext} = React;
-
   
 const navbar = () =>{
     const [search, setSearch] = useState('');
