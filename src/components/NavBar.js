@@ -15,7 +15,6 @@ const navbar = () =>{
     const [search, setSearch] = useState('');
     const [pokemon, setPokemon] = useState();
     const onChange = (evt) =>{
-      console.log(evt.target.value)
       setSearch(evt.target.value);
     }  
     const onClick = async(e) =>{
@@ -24,7 +23,6 @@ const navbar = () =>{
     }
     const [scrolled, setScrolled] = useState(false);
     const {favPokemon} = useContext(FavsContext)
-    console.log(favPokemon)
 
     useEffect(() => {
         const onScroll = () => {
