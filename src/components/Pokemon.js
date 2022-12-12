@@ -1,15 +1,18 @@
 import React, { useContext } from "react";
 import FavsContext from "../contexts/FavsContext";
-import blackiconstar from '../images/blackiconstar.png'
-import iconstar from '../images/iconstar.png'
+
 
 const Pokemon = (props) =>{
     const {pokemon} = props;
     const black = '🖤'
     const yellow = '💛'
-    const {favPokemon} = useContext(FavsContext)
+    const {favPokemon, updateFavPokemons} = useContext(FavsContext)
     const heart = favPokemon.includes(pokemon.name) ? yellow : black;
 
+    const clickHeart = e =>{
+        e.preventDefault();
+        updateFavPokemons(pokemon.name)
+    }    
     const colours = {
         normal: '#A8A77A',
         fire: '#EE8130',
@@ -52,7 +55,7 @@ const Pokemon = (props) =>{
                     
                     )}
                     </div>
-                    <button className="btn py-1">
+                    <button className="btn py-1" onClick={clickHeart}>
                         <div className="mt-5 iconstar">{heart}</div>
                     </button>
                 </div>

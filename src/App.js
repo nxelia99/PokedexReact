@@ -14,7 +14,7 @@ export default function App() {
   const [page, setPage] = useState(0);
   const [total, setTotal] = useState(0);
   const [loading, setLoading] = useState(false);
-  const [favs, setFavs] = useState(['raichu'])
+  const [favs, setFavs] = useState([])
 
   const fetchPokemons = async () => {
     try{
@@ -38,7 +38,14 @@ export default function App() {
     },[page]);
   
 const updateFavPokemons = (name) =>{
-  console.log(name)
+  const updated = [... favs]
+  const isFav = favs.indexOf(name);
+  if(isFav >= 0){
+    updated .splice(isFav, 1)
+  }else{
+    updated.push(name)
+  }
+  setFavs(updated)
 }
   return (
     <>
